@@ -1,0 +1,53 @@
+.image-detail {
+  width: 20%;
+  height: 20%;
+  float: left;
+  margin: 0 15px 0 15px;
+}
+
+.paragraph {
+  text-align: justify;
+  margin: 0 15px 0 0px;
+}
+
+input {
+  display: none;
+} /* hide radio buttons */
+input + label {
+  display: inline-block;
+} /* show labels in line */
+input ~ .tab {
+  display: none;
+} /* hide contents */
+/* show contents only for selected tab */
+#tab1:checked ~ .tab.content1,
+#tab2:checked ~ .tab.content2,
+#tab3:checked ~ .tab.content3,
+#tab4:checked ~ .tab.content4,
+#tab5:checked ~ .tab.content5 {
+  display: block;
+  width: 75%;
+  float: left;
+  height: 20%;
+}
+
+input + label {
+  /* box with rounded corner */
+  border: 1px solid #999;
+  background: #eee;
+  padding: 4px 12px;
+  border-radius: 4px 4px 0 0;
+  position: relative;
+  top: 1px;
+  float: left;
+}
+input:checked + label {
+  /* white background for selected tab */
+  background: #fff;
+  border-bottom: 1px solid transparent;
+}
+input ~ .tab {
+  /* grey line between tab and contents */
+  border-top: 1px solid #999;
+  padding: 12px;
+}

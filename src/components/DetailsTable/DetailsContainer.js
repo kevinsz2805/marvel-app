@@ -6,14 +6,8 @@ import PropTypes from 'prop-types';
 import * as characterComicActions from '../../actions/actions';
 
 class DetailsContainer extends Component {
-  //   componentDidMount() {
-  //     this.props.characterComicActions.fetchCharactersComics(this.props.Id);
-  //   }
-
   componentDidUpdate = prevProps => {
     if (prevProps.Id !== this.props.Id) {
-      //    this.setState({ dataTable: this.props.dataTable.items });
-      //  }
       this.props.characterComicActions.fetchCharactersComics(this.props.Id);
       this.props.characterComicActions.fetchCharactersStories(this.props.Id);
     }
@@ -22,7 +16,7 @@ class DetailsContainer extends Component {
   render() {
     return (
       <TableDetail
-        Id={this.props.Id}
+        id={this.props.Id}
         dataTable={this.props.dataTable}
         dataTableComics={this.props.comics}
         dataTableStories={this.props.stories}
@@ -34,7 +28,8 @@ class DetailsContainer extends Component {
 DetailsContainer.propTypes = {
   characterComicActions: PropTypes.object,
   comics: PropTypes.array,
-  stories: PropTypes.array
+  stories: PropTypes.array,
+  id: PropTypes.string
 };
 
 function mapStateToProps(state) {

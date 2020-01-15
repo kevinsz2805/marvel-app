@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 class TableStories extends Component {
   constructor(props) {
@@ -10,9 +11,6 @@ class TableStories extends Component {
       filterTitle: ''
     };
   }
-  //   componentDidMount() {
-  //     this.setState({ dataTable: this.props.dataTableStories });
-  //   }
 
   componentDidUpdate = prevProps => {
     if (prevProps.dataTableStories !== this.props.dataTableStories) {
@@ -68,4 +66,9 @@ class TableStories extends Component {
   }
 }
 
-export default TableStories;
+TableStories.propTypes = {
+  dataTableStories: PropTypes.array.isRequired,
+  headers: PropTypes.array.isRequired
+};
+
+export default connect(null)(TableStories);

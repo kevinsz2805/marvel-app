@@ -9,7 +9,6 @@
   width: 15%;
   height: 15%;
   margin: 15px 15px 15px 15px;
-
 }
 
 .image-comic {
@@ -27,14 +26,13 @@
 
 input {
   display: none;
-} /* hide radio buttons */
+}
 input + label {
   display: inline-block;
-} /* show labels in line */
+}
 input ~ .tab {
   display: none;
-} /* hide contents */
-/* show contents only for selected tab */
+}
 #tab1:checked ~ .tab.content1,
 #tab2:checked ~ .tab.content2 {
   display: block;
@@ -44,7 +42,6 @@ input ~ .tab {
 }
 
 input + label {
-  /* box with rounded corner */
   border: 1px solid #999;
   background: #eee;
   padding: 4px 12px;
@@ -54,13 +51,10 @@ input + label {
   float: left;
 }
 input:checked + label {
-  /* white background for selected tab */
   background: #fff;
   border-bottom: 1px solid transparent;
 }
 input ~ .tab {
-  /* grey line between tab and contents */
   border-top: 1px solid #999;
   padding: 12px;
 }
-

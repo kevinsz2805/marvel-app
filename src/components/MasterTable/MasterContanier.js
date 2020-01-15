@@ -1,10 +1,10 @@
-import React, { Component, Fragment } from "react";
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
-import TableMaster from "./Table";
-import * as characterActions from "../../actions/actions";
-import PropTypes from "prop-types";
-import DetailsContainer from "../DetailsTable/DetailsContainer";
+import React, { Component, Fragment } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import TableMaster from './Table';
+import * as characterActions from '../../actions/actions';
+import PropTypes from 'prop-types';
+import DetailsContainer from '../DetailsTable/DetailsContainer';
 
 class MasterContainer extends Component {
   componentDidMount() {
@@ -13,12 +13,12 @@ class MasterContainer extends Component {
 
   render() {
     return (
-      <div class="box">
-        <div class="box-header">
-          <h3 class="box-title">Marvel Comics</h3>
+      <div className="box">
+        <div className="box-header">
+          <h3 className="box-title">Marvel Comics</h3>
         </div>
-        <div class="box-body table-responsive no-padding">
-          <TableMaster headers={["Id", "Name", "Description","Image"]} dataTable={this.props.characters} />
+        <div className="box-body table-responsive no-padding">
+          <TableMaster headers={['Id', 'Name', 'Description', 'Image']} dataTable={this.props.characters} />
         </div>
       </div>
     );

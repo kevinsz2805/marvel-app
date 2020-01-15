@@ -1,6 +1,7 @@
-import React, { Component, Fragment } from "react";
-import { connect } from "react-redux";
-import DetailsContainer from "../DetailsTable/DetailsContainer";
+import React, { Component, Fragment } from 'react';
+import { connect } from 'react-redux';
+import DetailsContainer from '../DetailsTable/DetailsContainer';
+import PropTypes from 'prop-types';
 
 class TableMaster extends Component {
   constructor(props) {
@@ -8,9 +9,9 @@ class TableMaster extends Component {
 
     this.state = {
       showModal: false,
-      id: [],
+      id: '',
       dataTable: [],
-      filterName: ""
+      filterName: ''
     };
   }
 
@@ -30,7 +31,7 @@ class TableMaster extends Component {
 
   filterByName = filterName => {
     if (filterName.trim().length === 0) {
-      this.setState({ dataTable: this.props.dataTable, filterName: "" });
+      this.setState({ dataTable: this.props.dataTable, filterName: '' });
     } else {
       const dataTable = this.props.dataTable.filter(d => d.name.toLowerCase().includes(filterName.toLowerCase()));
       this.setState({ dataTable, filterName });
@@ -38,7 +39,6 @@ class TableMaster extends Component {
   };
 
   render() {
-    console.log("table master", this.state.dataTable);
     return (
       <Fragment>
         <this.Modal show={this.state.showModal} handleClose={this.hideModal}>
@@ -49,7 +49,11 @@ class TableMaster extends Component {
           <thead className="thead-dark">
             <tr>
               {this.props.headers.map(header => {
-                return <th scope="col">{header}</th>;
+                return (
+                  <th key={header} scope="col">
+                    {header}
+                  </th>
+                );
               })}
             </tr>
             <tr>
@@ -72,9 +76,10 @@ class TableMaster extends Component {
                   <td>{character.name}</td>
                   <td>{character.description}</td>
                   <td>
-                  <td>
-                  <img src={character.thumbnail.path + '.' + character.thumbnail.extension} className="image-comic"></img>
-                </td>
+                    <img
+                      src={character.thumbnail.path + '.' + character.thumbnail.extension}
+                      className="image-comic"
+                    ></img>
                   </td>
                 </tr>
               );
@@ -88,17 +93,30 @@ class TableMaster extends Component {
   //Modal for the Details Table
 
   Modal = ({ handleClose, show, children }) => {
-    const showHideClassName = show ? "modal display-block" : "modal display-none";
+    const showHideClassName = show ? 'modal display-block' : 'modal display-none';
 
     return (
       <div className={showHideClassName}>
         <section className="modal-main">
           <div className="modal-container">{children}</div>
-          <button className="buttonClose" onClick={handleClose}>X</button>
+          <button className="buttonClose" onClick={handleClose}>
+            X
+          </button>
         </section>
       </div>
     );
   };
 }
 
-export default TableMaster;
+TableMaster.propTypes = {
+  dataTable: PropTypes.array.isRequired,
+  headers: PropTypes.array.isRequired
+};
+
+function mapStateToProps(state) {
+  return {
+    dataTable: state.characters
+  };
+}
+
+export default connect(mapStateToProps)(TableMaster);

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 class TableComics extends Component {
   constructor(props) {
@@ -12,9 +13,6 @@ class TableComics extends Component {
       filterIssueNumber: ''
     };
   }
-  //   componentDidMount() {
-  //     this.setState({ dataTable: this.props.dataTableComics });
-  //   }
 
   componentDidUpdate = prevProps => {
     if (prevProps.dataTableComics !== this.props.dataTableComics) {
@@ -56,7 +54,6 @@ class TableComics extends Component {
   };
 
   render() {
-    //console.log('entro detalle', this.props.dataTableComics.issueNumber);
     return (
       <table className="table table-striped">
         <thead className="thead-dark">
@@ -113,4 +110,9 @@ class TableComics extends Component {
   }
 }
 
-export default TableComics;
+TableComics.propTypes = {
+  dataTableComics: PropTypes.array.isRequired,
+  headers: PropTypes.array.isRequired
+};
+
+export default connect(null)(TableComics);

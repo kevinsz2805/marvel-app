@@ -1,3 +1,5 @@
-export default{
-    characters: []
+export default {
+  characters: [],
+  comics: [],
+  stories: []
 };

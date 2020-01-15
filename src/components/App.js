@@ -9,7 +9,7 @@ class App extends Component{
     render(){
         return(
             <div className="App">
-                <h2>Marvel Comics</h2>
+                
                 <div className="col-md-12">
                     <MasterContanier></MasterContanier>
                 </div>

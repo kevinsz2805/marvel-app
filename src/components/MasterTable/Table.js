@@ -1,6 +1,6 @@
-import React, { Component, Fragment } from 'react';
-import { connect } from 'react-redux';
-import DetailsContainer from '../DetailsTable/DetailsContainer';
+import React, { Component, Fragment } from "react";
+import { connect } from "react-redux";
+import DetailsContainer from "../DetailsTable/DetailsContainer";
 
 class TableMaster extends Component {
   constructor(props) {
@@ -10,7 +10,7 @@ class TableMaster extends Component {
       showModal: false,
       id: [],
       dataTable: [],
-      filterStr: ''
+      filterName: ""
     };
   }
 
@@ -28,21 +28,21 @@ class TableMaster extends Component {
     this.setState({ showModal: false });
   };
 
-  changeFilterStr = filterStr => {
-    console.log(filterStr);
-    if (filterStr.trim().length === 0) {
-      this.setState({ dataTable: this.props.dataTable, filterStr: '' });
+  filterByName = filterName => {
+    if (filterName.trim().length === 0) {
+      this.setState({ dataTable: this.props.dataTable, filterName: "" });
     } else {
-      const dataTable = this.props.dataTable.filter(d => d.name.toLowerCase().includes(filterStr.toLowerCase()));
-      this.setState({ dataTable, filterStr });
+      const dataTable = this.props.dataTable.filter(d => d.name.toLowerCase().includes(filterName.toLowerCase()));
+      this.setState({ dataTable, filterName });
     }
   };
 
   render() {
+    console.log("table master", this.state.dataTable);
     return (
       <Fragment>
         <this.Modal show={this.state.showModal} handleClose={this.hideModal}>
-          <DetailsContainer Id={this.state.id} headers={['1', '2']} dataTable={this.props.dataTable} />
+          <DetailsContainer Id={this.state.id} dataTable={this.props.dataTable} />
         </this.Modal>
 
         <table className="table table-striped">
@@ -55,7 +55,12 @@ class TableMaster extends Component {
             <tr>
               <th></th>
               <th>
-                <input type="text" value={this.state.filterStr} onChange={e => this.changeFilterStr(e.target.value)} />
+                <input
+                  type="text"
+                  className="form-control"
+                  value={this.state.filterName}
+                  onChange={e => this.filterByName(e.target.value)}
+                />
               </th>
             </tr>
           </thead>
@@ -66,6 +71,11 @@ class TableMaster extends Component {
                   <td scope="row">{character.id}</td>
                   <td>{character.name}</td>
                   <td>{character.description}</td>
+                  <td>
+                  <td>
+                  <img src={character.thumbnail.path + '.' + character.thumbnail.extension} className="image-comic"></img>
+                </td>
+                  </td>
                 </tr>
               );
             })}
@@ -75,16 +85,16 @@ class TableMaster extends Component {
     );
   }
 
+  //Modal for the Details Table
+
   Modal = ({ handleClose, show, children }) => {
-    const showHideClassName = show ? 'modal display-block' : 'modal display-none';
+    const showHideClassName = show ? "modal display-block" : "modal display-none";
 
     return (
       <div className={showHideClassName}>
         <section className="modal-main">
-          <h1></h1>
-          <br />
           <div className="modal-container">{children}</div>
-          <button onClick={handleClose}>Close</button>
+          <button className="buttonClose" onClick={handleClose}>X</button>
         </section>
       </div>
     );

@@ -1,13 +1,28 @@
 .image-detail {
-  width: 20%;
-  height: 20%;
+  width: 15%;
+  height: 15%;
+  margin: 15px 15px 15px 15px;
+  float: left;
+}
+
+.image-detail-center {
+  width: 15%;
+  height: 15%;
+  margin: 15px 15px 15px 15px;
+
+}
+
+.image-comic {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
   float: left;
   margin: 0 15px 0 15px;
 }
 
 .paragraph {
   text-align: justify;
-  margin: 0 15px 0 0px;
+  margin: 0px 4% 0px 0;
 }
 
 input {
@@ -21,12 +36,9 @@ input ~ .tab {
 } /* hide contents */
 /* show contents only for selected tab */
 #tab1:checked ~ .tab.content1,
-#tab2:checked ~ .tab.content2,
-#tab3:checked ~ .tab.content3,
-#tab4:checked ~ .tab.content4,
-#tab5:checked ~ .tab.content5 {
+#tab2:checked ~ .tab.content2 {
   display: block;
-  width: 75%;
+  width: 95%;
   float: left;
   height: 20%;
 }
@@ -51,3 +63,4 @@ input ~ .tab {
   border-top: 1px solid #999;
   padding: 12px;
 }
+

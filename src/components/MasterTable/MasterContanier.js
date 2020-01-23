@@ -4,7 +4,7 @@ import { bindActionCreators } from "redux";
 import TableMaster from "./Table";
 import * as characterActions from "../../actions/actions";
 import PropTypes from "prop-types";
-import DetailsContainer from "../DetailsTable/DetailsContainer";
+import TableComics from "../DetailsTable/TableComics";
 import banner from "../../assets/1.jpg";
 
 class MasterContainer extends Component {
@@ -30,22 +30,24 @@ class MasterContainer extends Component {
               <label htmlFor="tab2-1">CHARACTERS</label>
               <input id="tab2-1" name="tabs-two" type="radio" defaultChecked />
               <div>
-                content character
+                <div className="col-md-12">
+                  <TableMaster headers={["Id", "Name", "Description", "Image"]} dataTable={this.props.characters} />
+                </div>
               </div>
             </div>
             <div className="tab-2">
               <label htmlFor="tab2-2">COMICS</label>
               <input id="tab2-2" name="tabs-two" type="radio" />
               <div>
-                content comics
+              <TableComics
+                          headers={["Title", "Description", "Issue Number", "Format", "Image"]}
+                          dataTableComics={this.props.allComics}
+                        ></TableComics>
               </div>
             </div>
           </div>
 
           {/* End of tabs */}
-          <div className="col-md-12">
-            <TableMaster headers={["Id", "Name", "Description", "Image"]} dataTable={this.props.characters} />
-          </div>
         </div>
       </Fragment>
     );

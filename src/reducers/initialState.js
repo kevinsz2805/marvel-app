@@ -1,5 +1,6 @@
 export default {
   characters: [],
   comics: [],
-  stories: []
+  stories: [],
+  allComics: []
 };

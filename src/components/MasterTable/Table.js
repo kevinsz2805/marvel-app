@@ -44,14 +44,14 @@ class TableMaster extends Component {
         <this.Modal show={this.state.showModal} handleClose={this.hideModal}>
           <DetailsContainer Id={this.state.id} dataTable={this.props.dataTable} />
         </this.Modal>
-        <div class="clearfix">
+        <div className="clearfix">
           <br />
         </div>
         {this.state.dataTable.map(character => {
           return (
             <div className="col-md-3">
               <ul>
-                <li>
+                <li key={character.id} onClick={() => this.showModal(character.id)}>
                   <img
                     src={character.thumbnail.path + "." + character.thumbnail.extension}
                     className="image-comic"

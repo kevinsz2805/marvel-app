@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
+import React, { Component, Fragment } from "react";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import listIcon from "../../assets/2.png";
 
 class TableStories extends Component {
   constructor(props) {
@@ -8,7 +9,7 @@ class TableStories extends Component {
 
     this.state = {
       dataTable: [],
-      filterTitle: ''
+      filterTitle: ""
     };
   }
 
@@ -20,7 +21,7 @@ class TableStories extends Component {
 
   filterByTitle = filterTitle => {
     if (filterTitle.trim().length === 0) {
-      this.setState({ dataTable: this.props.dataTableStories, filterTitle: '' });
+      this.setState({ dataTable: this.props.dataTableStories, filterTitle: "" });
     } else {
       const dataTable = this.props.dataTableStories.filter(d =>
         d.title.toLowerCase().includes(filterTitle.toLowerCase())
@@ -30,38 +31,21 @@ class TableStories extends Component {
   };
 
   render() {
+    console.log('stories',this.state.dataTable)
     return (
-      <table className="table table-striped">
-        <thead className="thead-dark">
-          <tr>
-            {this.props.headers.map(header => {
-              return <th scope="col">{header}</th>;
-            })}
-          </tr>
-          <tr>
-            <th>
-              <input
-                type="text"
-                className="form-control"
-                value={this.state.filterTitle}
-                onChange={e => this.filterByTitle(e.target.value)}
-              />
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          {this.state.dataTable.map(stories => {
-            return (
-              <tr>
-                <td scope="row">{stories.title}</td>
-                <td>{stories.description}</td>
-                <td>{stories.resourceURI}</td>
-                <td>{stories.type}</td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
+      <Fragment>
+        {this.state.dataTable.map(stories => {
+          return (
+            <div className="col-md-12">
+           
+                  <div className="divStories">
+                    <img className="imge-list-stories" src={listIcon} ></img>
+                    {stories.title}</div>
+             
+            </div>
+          );
+        })}
+      </Fragment>
     );
   }
 }

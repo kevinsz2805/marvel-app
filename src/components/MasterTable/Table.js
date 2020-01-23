@@ -1,7 +1,7 @@
-import React, { Component, Fragment } from 'react';
-import { connect } from 'react-redux';
-import DetailsContainer from '../DetailsTable/DetailsContainer';
-import PropTypes from 'prop-types';
+import React, { Component, Fragment } from "react";
+import { connect } from "react-redux";
+import DetailsContainer from "../DetailsTable/DetailsContainer";
+import PropTypes from "prop-types";
 
 class TableMaster extends Component {
   constructor(props) {
@@ -9,9 +9,9 @@ class TableMaster extends Component {
 
     this.state = {
       showModal: false,
-      id: '',
+      id: "",
       dataTable: [],
-      filterName: ''
+      filterName: ""
     };
   }
 
@@ -31,7 +31,7 @@ class TableMaster extends Component {
 
   filterByName = filterName => {
     if (filterName.trim().length === 0) {
-      this.setState({ dataTable: this.props.dataTable, filterName: '' });
+      this.setState({ dataTable: this.props.dataTable, filterName: "" });
     } else {
       const dataTable = this.props.dataTable.filter(d => d.name.toLowerCase().includes(filterName.toLowerCase()));
       this.setState({ dataTable, filterName });
@@ -44,8 +44,26 @@ class TableMaster extends Component {
         <this.Modal show={this.state.showModal} handleClose={this.hideModal}>
           <DetailsContainer Id={this.state.id} dataTable={this.props.dataTable} />
         </this.Modal>
+        <div class="clearfix">
+          <br />
+        </div>
+        {this.state.dataTable.map(character => {
+          return (
+            <div className="col-md-3">
+              <ul>
+                <li>
+                  <img
+                    src={character.thumbnail.path + "." + character.thumbnail.extension}
+                    className="image-comic"
+                  ></img>
+                  <div className="divulli">{character.name}</div>
+                </li>
+              </ul>
+            </div>
+          );
+        })}
 
-        <table className="table table-striped">
+        {/* <table className="table table-striped">
           <thead className="thead-dark">
             <tr>
               {this.props.headers.map(header => {
@@ -77,7 +95,7 @@ class TableMaster extends Component {
                   <td>{character.description}</td>
                   <td>
                     <img
-                      src={character.thumbnail.path + '.' + character.thumbnail.extension}
+                      src={character.thumbnail.path + "." + character.thumbnail.extension}
                       className="image-comic"
                     ></img>
                   </td>
@@ -85,7 +103,7 @@ class TableMaster extends Component {
               );
             })}
           </tbody>
-        </table>
+        </table> */}
       </Fragment>
     );
   }
@@ -93,7 +111,7 @@ class TableMaster extends Component {
   //Modal for the Details Table
 
   Modal = ({ handleClose, show, children }) => {
-    const showHideClassName = show ? 'modal display-block' : 'modal display-none';
+    const showHideClassName = show ? "modal display-block" : "modal display-none";
 
     return (
       <div className={showHideClassName}>

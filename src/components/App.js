@@ -8,9 +8,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="col-md-12">
           <MasterContanier></MasterContanier>
-        </div>
       </div>
     );
   }

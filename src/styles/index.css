@@ -1,11 +1,11 @@
-body{
-    background-image: url('../assets/background.jpg');
-    height: 100%;
-    background-size: cover;
-    background-repeat: none;
-    opacity: 0.8;
+body {
+  color: #787878;
+  line-height: 1.6em;
+  font-weight: 400;
+  background: #0c0a0a;
+  font-size: 1.5rem;
+  font-family: "PT Sans", sans-serif;
 }
 .App {
-    text-align: center;
-    padding: 5%;
+  text-align: center;
 }

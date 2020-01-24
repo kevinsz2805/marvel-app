@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import TableDetail from './TableDetail';
-import PropTypes from 'prop-types';
-import * as characterComicActions from '../../actions/actions';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import TableDetail from "./TableDetail";
+import PropTypes from "prop-types";
+import * as characterComicActions from "../../actions/actions";
 
 class DetailsContainer extends Component {
   componentDidUpdate = prevProps => {

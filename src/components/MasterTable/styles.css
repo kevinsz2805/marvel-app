@@ -60,7 +60,7 @@ hr {
   background: none;
   border: none;
   color: aliceblue;
-  font-family: 'heroes';
+  font-family: "heroes";
 }
 
 a {
@@ -184,6 +184,6 @@ select:focus {
   margin: 0px 0px 2% 1%;
 }
 
-.div-filter{
+.div-filter {
   text-align: left;
 }

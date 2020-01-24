@@ -31,17 +31,16 @@ class TableStories extends Component {
   };
 
   render() {
-    console.log('stories',this.state.dataTable)
+    console.log("stories", this.state.dataTable);
     return (
       <Fragment>
         {this.state.dataTable.map(stories => {
           return (
             <div className="col-md-12">
-           
-                  <div className="divStories">
-                    <img className="imge-list-stories" src={listIcon} ></img>
-                    {stories.title}</div>
-             
+              <div className="divStories">
+                <img className="imge-list-stories" src={listIcon}></img>
+                {stories.title}
+              </div>
             </div>
           );
         })}

@@ -15,15 +15,6 @@ class TableDetail extends Component {
               return (
                 <div className="container">
                   <Fragment>
-                    {/* <div className="row">
-                      <h1>{character.name}</h1>
-                      <img
-                        src={character.thumbnail.path + '.' + character.thumbnail.extension}
-                        className={character.description !== '' ? 'image-detail' : 'image-detail-center'}
-                      ></img>
-                      <br />
-                      <p className="paragraph">{character.description}</p>
-                    </div> */}
                     <div className="col-md-3">
                       <ul>
                         <li key={character.id} onClick={() => this.showModal(character.id)}>

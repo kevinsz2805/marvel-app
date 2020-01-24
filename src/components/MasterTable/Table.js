@@ -76,48 +76,6 @@ class TableMaster extends Component {
             </div>
           );
         })}
-
-        {/* <table className="table table-striped">
-          <thead className="thead-dark">
-            <tr>
-              {this.props.headers.map(header => {
-                return (
-                  <th key={header} scope="col">
-                    {header}
-                  </th>
-                );
-              })}
-            </tr>
-            <tr>
-              <th></th>
-              <th>
-                <input
-                  type="text"
-                  className="form-control"
-                  value={this.state.filterName}
-                  onChange={e => this.filterByName(e.target.value)}
-                />
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {this.state.dataTable.map(character => {
-              return (
-                <tr key={character.id} onClick={() => this.showModal(character.id)}>
-                  <td scope="row">{character.id}</td>
-                  <td>{character.name}</td>
-                  <td>{character.description}</td>
-                  <td>
-                    <img
-                      src={character.thumbnail.path + "." + character.thumbnail.extension}
-                      className="image-comic"
-                    ></img>
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table> */}
       </Fragment>
     );
   }

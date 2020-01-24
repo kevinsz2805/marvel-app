@@ -1,5 +1,5 @@
-import initialState from './initialState';
-import { FETCH_CHARACTERS_STORIES, RECIEVE_CHARACTERS_STORIES } from '../actions/actionTypes';
+import initialState from "./initialState";
+import { FETCH_CHARACTERS_STORIES, RECIEVE_CHARACTERS_STORIES } from "../actions/actionTypes";
 
 export default function characters(state = initialState.stories, action) {
   switch (action.type) {

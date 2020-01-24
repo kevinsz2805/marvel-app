@@ -10,7 +10,7 @@ export function recieveCharacters(json) {
 export function fetchCharacters() {
   return dispatch => {
     return fetch(
-      apiUrl + '?apikey=a61854b19bc167f88435779e1dc4c200&hash=340ace023ca8750b03a3d527a0563380&ts=1&orderBy=name',
+      apiUrl + '?apikey=a61854b19bc167f88435779e1dc4c200&hash=340ace023ca8750b03a3d527a0563380&ts=1&orderBy=name&limit=100',
       {
         method: 'GET',
         mode: 'cors',
@@ -40,7 +40,7 @@ export function fetchCharactersComics(id) {
   return dispatch => {
     return fetch(
       apiUrl +
-        `/${id}/comics?apikey=a61854b19bc167f88435779e1dc4c200&hash=340ace023ca8750b03a3d527a0563380&ts=1&orderBy=issueNumber`,
+        `/${id}/comics?apikey=a61854b19bc167f88435779e1dc4c200&hash=340ace023ca8750b03a3d527a0563380&ts=1&orderBy=issueNumber&limit=20`,
       {
         method: 'GET',
         mode: 'cors',
@@ -69,7 +69,7 @@ export function recieveCharactersStories(json) {
 export function fetchCharactersStories(id) {
   return dispatch => {
     return fetch(
-      apiUrl + `/${id}/stories?apikey=a61854b19bc167f88435779e1dc4c200&hash=340ace023ca8750b03a3d527a0563380&ts=1`,
+      apiUrl + `/${id}/stories?apikey=a61854b19bc167f88435779e1dc4c200&hash=340ace023ca8750b03a3d527a0563380&ts=1&limit=50`,
       {
         method: 'GET',
         mode: 'cors',
@@ -99,7 +99,7 @@ export function fetchAllComics() {
   return dispatch => {
     return fetch(
       apiUrlComics +
-        `/comics?apikey=a61854b19bc167f88435779e1dc4c200&hash=340ace023ca8750b03a3d527a0563380&ts=1`,
+        `/comics?apikey=a61854b19bc167f88435779e1dc4c200&hash=340ace023ca8750b03a3d527a0563380&ts=1&limit=100`,
       {
         method: 'GET',
         mode: 'cors',

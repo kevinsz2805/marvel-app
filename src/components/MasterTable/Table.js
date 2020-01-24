@@ -2,6 +2,7 @@ import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import DetailsContainer from "../DetailsTable/DetailsContainer";
 import PropTypes from "prop-types";
+import filter from "../../assets/filter.png";
 
 class TableMaster extends Component {
   constructor(props) {
@@ -45,6 +46,19 @@ class TableMaster extends Component {
           <DetailsContainer Id={this.state.id} dataTable={this.props.dataTable} />
         </this.Modal>
         <div className="clearfix">
+          <div className="col-md-6 div-filter">
+            <h2 className="title-filter">Filters</h2>
+            <img className="image-filter" src={filter} />
+            <input
+              type="text"
+              placeholder="Search by name..."
+              className="form-control"
+              value={this.state.filterName}
+              onChange={e => this.filterByName(e.target.value)}
+            />
+            <br />
+          </div>
+
           <br />
         </div>
         {this.state.dataTable.map(character => {

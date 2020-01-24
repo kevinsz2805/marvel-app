@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+import filter from "../../assets/filter.png";
 
 class TableComics extends Component {
   constructor(props) {
@@ -56,6 +57,44 @@ class TableComics extends Component {
   render() {
     return (
       <Fragment>
+        <div className="clearfix">
+          <div className="col-md-12 div-filter">
+            <h2 className="title-filter">Filters</h2>
+            <img className="image-filter" src={filter} />
+            <br />
+          </div>
+          <div className="col-md-4 div-filter">
+            <input
+              type="text"
+              placeholder="Search By Title..."
+              className="form-control"
+              value={this.state.filterName}
+              onChange={e => this.filterByName(e.target.value)}
+            />
+            <br />
+          </div>
+          <div className="col-md-4 div-filter">
+            <input
+              type="text"
+              placeholder="Search By Issue Number..."
+              className="form-control"
+              value={this.state.filterIssueNumber}
+              onChange={e => this.filterByIssueNumber(e.target.value)}
+            />
+            <br />
+          </div>
+          <div className="col-md-4 div-filter">
+            <input
+              type="text"
+              placeholder="Search By Format..."
+              className="form-control"
+              value={this.state.filterFormat}
+              onChange={e => this.filterByFormat(e.target.value)}
+            />
+            <br />
+          </div>
+          <br />
+        </div>
         {this.state.dataTable.map(comics => {
           return (
             <div className="col-md-3">

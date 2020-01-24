@@ -166,3 +166,23 @@ select:focus {
 .tabs .tab-2:last-child [type="radio"]:checked + div {
   margin-left: -100%;
 }
+
+.form-control {
+  font-family: "heroes";
+}
+
+.title-filter {
+  font-family: "heroes";
+  color: #fff;
+  display: inline-block;
+}
+
+.image-filter {
+  width: 4%;
+  display: inline-block;
+  margin: 0px 0px 2% 1%;
+}
+
+.div-filter{
+  text-align: left;
+}
